@@ -10,9 +10,9 @@ const findPolizasClienteByNit = async (req, res, next) => {
   try {
     const pNIT = req.params.pNIT;
     const instance = await createInstance();
-    const { data } = await instance.get('/findPolizasClienteByNit', { params: { pNIT: pNIT } });
+    const { data:{data} } = await instance.get('/findPolizasClienteByNit', { params: { pNIT: pNIT } });
   
-    res.json(data);
+    res.json(data[0]);
   } catch (error) {
     console.error(error);
     res.status(500).send('Error');
@@ -29,9 +29,9 @@ const findPolizaRequerimientosByNIT = async(req, res, next)=>{
   try {
     const pNIT = req.params.pNIT;
     const instance = await createInstance();
-    const {data} = await instance.get('/findPolizaRequerimientosByNIT', { params: { pNIT: pNIT } });
+    const {data:{data}} = await instance.get('/findPolizaRequerimientosByNIT', { params: { pNIT: pNIT } });
     
-    res.json(data)
+    res.json(data[0])
   } catch (error) {
     console.error(error);
     res.status(500).send('Error');
@@ -48,9 +48,9 @@ const findPolizaRequerimientosByDPI = async(req, res, next)=>{
   try {
     const pDPI = req.params.pDPI;
     const instance = await createInstance();
-    const {data} = await instance.get('/findPolizaRequerimientosByDPI', { params: { pDPI: pDPI } });  
+    const {data:{data}} = await instance.get('/findPolizaRequerimientosByDPI', { params: { pDPI: pDPI } });  
     
-    res.json(data)
+    res.json(data[0])
   } catch (error) {
     console.error(error);
     res.status(500).send('Error');
@@ -68,9 +68,9 @@ const findRequerimientosByLlavePoliza = async(req, res, next)=>{
   try {
     const pLlavePoliza = req.params.pLlavePoliza;
     const instance = await createInstance();
-    const {data} = await instance.get('/findRequerimientosByLlavePoliza', { params: { pLlavePoliza: pLlavePoliza } });  
+    const {data:{data}} = await instance.get('/findRequerimientosByLlavePoliza', { params: { pLlavePoliza: pLlavePoliza } });  
     
-    res.json(data)
+    res.json(data[0]);
   } catch (error) {
     console.error(error);
     res.status(500).send('Error');
